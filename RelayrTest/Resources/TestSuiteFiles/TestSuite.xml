@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="API test suite">
+	<test name="Functional tests">
+		<classes>
+			<class name="org.relayrApiTests.TestBoredAPI">
+                <methods>                    
+                    <include name="tc01_validateJSONFormat"/>
+					<include name="tc02_validateParticipantCountResults"/>
+                </methods>
+             </class>
+		</classes>
+	</test>
+</suite>
