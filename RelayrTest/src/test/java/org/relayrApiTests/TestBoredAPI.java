@@ -2,6 +2,7 @@ package org.relayrApiTests;
 
 import org.relayr.SimpleFramework.BaseTest;
 import org.relayr.SimpleFramework.ConfigFile;
+import org.relayr.SimpleFramework.ExcelUtils;
 import org.relayr.stepDefination.BoredApi;
 import org.testng.annotations.Test;
 import java.util.*;
@@ -25,7 +26,7 @@ public class TestBoredAPI extends BaseTest {
      * On entering values below 1 or more than 10 invalid response should be returned
      */
     @Test
-    public void tc02_validateParticipantCountResults(){
+    public void tc02_validateParticipantCountResults(){    	
         BaseTest.test.info(ConfigFile.TC02);
         //Tset Data is provided in hash table
         Hashtable<String,String> testData = new Hashtable<String,String>();
@@ -39,6 +40,21 @@ public class TestBoredAPI extends BaseTest {
         BoredApi.verifyCountDisplaysRightActivity(testData);
 
     }
+    
+    @Test
+    public  void tc01_validateJSONFormat1() throws Exception{
+    
+       String excelFilePath = "C:\\Users\\4984356\\Desktop\\TestExcelFile.xlsx";
+       String sheetName = "Sheet1";
+       
+       ExcelUtils ex = new ExcelUtils();
+       ArrayList<String> ar = new ArrayList<String>();
+       ar = ex.GetExcelColumn(excelFilePath, sheetName, "Number");
+       System.out.println(ar.get(0)); // get first row
+       System.out.println(ar.get(1)); // get 2nd row
+       
+    }
+    
 
 }
 
